@@ -1,0 +1,17 @@
+
+
+.btn-form, .new-outline-btn {
+    background-color: $primary;
+    color: #FFF;
+    width: 50%;
+}
+
+.btn-form:hover, .new-outline-btn:hover {
+    background-color: #FFF;
+    color: $primary;
+    border: 1px solid $primary;
+}
+
+.profileBtn {
+    width: 100%;
+}
