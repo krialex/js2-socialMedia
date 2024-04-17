@@ -19,7 +19,8 @@
         </div>
         <hr class="index-hr">
         <div class="container d-flex justify-content-center col-md-6 flex-column">
-            <form action="/profile.html" id="form" class="border rounded p-3 mb-4 text-start col-sm-12 loginForm">
+            <form id="form" class="logIn border rounded p-3 mb-4 text-start col-sm-12 loginForm">
+                <div class="signUpSuccess"></div>
                 <h3>Log in</h3>
                 <label for="email">Your email</label>
                 <input type="email" name="email" id="loginEmail" class="form-control form-control-sm mb-1">
@@ -40,6 +41,6 @@
     </div>
 </section>
 
-<script src="js/log_in.js"></script>
+<script type="module" src="js/validation/log_in.js"></script>
 </body>
 </html>

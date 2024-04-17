@@ -19,16 +19,16 @@
         </div>
         <hr class="index-hr">
         <div class="container d-flex justify-content-center col-md-6">
-            <form action="/profile.html" id="form" class="border rounded p-3 mb-4 text-start col-sm-12 loginForm">
+            <form id="form" class="signUpForm border rounded p-3 mb-4 text-start col-sm-12 loginForm">
                 <h3>Create an account</h3>
                 <label for="userName">User name</label>
-                <input type="userName" name="userName" id="loginName" class="form-control form-control-sm mb-1">
+                <input type="text" name="userName" id="loginName" required minlength="2" class="form-control form-control-sm mb-1">
                 <div class="errorMessage" id="errorName">Please fill inn a username</div>
                 <label for="email">Your email</label>
-                <input type="email" name="email" id="loginEmail" class="form-control form-control-sm mb-1">
+                <input type="email" name="email" id="loginEmail" required class="form-control form-control-sm mb-1">
                 <div class="errorMessage" id="errorEmail">Please use a @stud.noroff.no account</div>
                 <label for="password">Password</label>
-                <input type="text" name="password" id="loginPassword" class="form-control form-control-sm mb-1">
+                <input type="text" name="password" id="loginPassword" required maxlength="8" class="form-control form-control-sm mb-1">
                 <div class="errorMessage" id="errorPassword">Your password needs to be at least 8 characters long</div>
                 <div class="form-check mb-1">
                     <input class="form-check-input checkBox" type="checkbox" value="" id="flexCheckChecked" checked>
@@ -40,6 +40,6 @@
     </div>
 </section>
 
-<script src="js/sign_up.js"></script>
+<script type="module" src="js/validation/sign_up.js"></script>
 </body>
 </html>

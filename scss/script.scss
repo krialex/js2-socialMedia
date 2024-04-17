@@ -20,6 +20,8 @@ $theme-colors: map-merge($alt-theme-colors, $theme-colors);
 @import "../scss/profile.scss";
 @import "../scss/nav.scss";
 @import "../scss/images.scss";
+@import "../scss/posts.scss";
+@import "../scss/newPostModal.scss";
 
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
