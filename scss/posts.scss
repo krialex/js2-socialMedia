@@ -1,15 +1,27 @@
+.postFeed a, .profile-feed a {
+    text-decoration: none;
+    color: black;
+}
 
-.postFeed {
-    max-width: 800px;
+.postFeed, .profile-feed {
+    max-width: 900px;
     margin: 0px auto;
-    gap: 15px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
-.userPosts {
-    overflow: scroll;
-}
-
-.feed-card {
+.feed-card, .profile-feed-card {
     background-color: #FFF;
     padding: 20px;
+    width: 100%;
 }
+
+@media(max-width: 574px) {
+    .postFeed {
+        flex-direction: row;
+    }
+}
+
+
+//col-12 col-sm-6 col-md-4 col-lg-3 

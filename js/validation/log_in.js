@@ -10,7 +10,12 @@ const userPassword = document.getElementById("loginPassword");
 const errorEmail = document.getElementById("errorEmail");
 const errorPassword = document.getElementById("errorPassword");
 
-// Login
+/**
+ * lOGIN FORM VALIDATION    
+ * @param {email from input} email 
+ * @param {password from input} password 
+ * @returns 
+ */
 export async function login(email, password) {
     const response = await fetch(GET_BASE_URL + LOGIN, {
         headers: { 

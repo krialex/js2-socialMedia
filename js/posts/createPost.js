@@ -23,7 +23,7 @@ import { load } from "../localStorage/loadInfo.js";
 const form = document.querySelector(".postModalContet")
 const postTitle = document.getElementById("postTitle");
 const postBody = document.getElementById("postBody");
-
+const postImage = document.getElementById("postImageUrls");
 
 
     form.addEventListener(`submit`, async function addNewPost(event) {
@@ -32,8 +32,14 @@ const postBody = document.getElementById("postBody");
         const token = load("token");
         const title = postTitle.value;
         const body = postBody.value;
+        const imagesUrl = postImage.value;
       
         try {
+            const postData = { title, body };
+            if (imagesUrl.length > 0) {
+                postData.images = imagesUrl;
+            }
+
             const response = await fetch(GET_BASE_URL + ALL_POSTS, {
                 headers: { 
                     'Content-Type': 'application/json',
@@ -41,7 +47,7 @@ const postBody = document.getElementById("postBody");
                     Authorization: `Bearer ${token}` 
                 },
                 method: 'POST',
-                body: JSON.stringify({title, body}),
+                body: JSON.stringify(postData),
             });
             console.log(title, body);
 
@@ -52,7 +58,6 @@ const postBody = document.getElementById("postBody");
             console.log(userData);
     
             return userData;
-    
         } catch {
             console.log("all kode feilet");
         }

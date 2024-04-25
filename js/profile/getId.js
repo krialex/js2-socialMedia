@@ -21,7 +21,6 @@ export async function getUserProfile() {
         if (!response.ok) {
             throw new Error("Failed to fetch user info");
         }
-    
         const userData = await response.json();
         console.log(userData);
 
@@ -29,7 +28,6 @@ export async function getUserProfile() {
         <p class="col-12">${userData.data.bio || ''}</p>`;
 
         return userData;
-
     } catch {
         console.log("could not find profile");
     }
