@@ -1,6 +1,7 @@
-const searchInput = document.getElementById("search_input");
+
 
 export function initializeSearch() {
+    const searchInput = document.getElementById("search_input");
     const searchBtn = document.getElementById("search_btn");
 
     searchBtn.onclick = function(event) {

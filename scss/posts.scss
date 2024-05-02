@@ -4,17 +4,28 @@
 }
 
 .postFeed, .profile-feed {
-    max-width: 900px;
+    max-width: 1070px;
     margin: 0px auto;
     gap: 10px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0px 5px;
+}
+
+.feed-card {
+    max-width: max-content;
 }
 
 .feed-card, .profile-feed-card {
     background-color: #FFF;
     padding: 20px;
     width: 100%;
+    margin: 0px auto;
+}
+
+.tag-input {
+    font-size: .7rem;
+    width: 20%;
 }
 
 @media(max-width: 574px) {
@@ -23,5 +34,14 @@
     }
 }
 
+@media(max-width: 700px) {
+    .postFeed, .profile-feed {
+        max-width: 600px;
+    }
+}
 
-//col-12 col-sm-6 col-md-4 col-lg-3 
+@media(max-width: 1050px) {
+    .postFeed, .profile-feed {
+        max-width: 900px;
+    }
+}

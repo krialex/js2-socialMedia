@@ -8,7 +8,7 @@ initializeSearch();
 //
 
 const searchContainer = document.querySelector(".postFeed");
-
+const searchInput = document.getElementById("search_input");
 
 const getData = async(query) => {
     const token = load("token");
@@ -51,13 +51,16 @@ function renderPosts(posts) {
         searchHTML += `<div class="feed-card userPosts">
                         <h3>${post.title}</h3>
                         <p>${post.body || ''}</p>`;
-                
-        if(post.media && post.media.url) {
-            searchHTML += `<img src="${post.media.url}" alt="${post.media.alt}"/>`; 
-        }
-        searchHTML += `</div>`;
-    }); 
-    searchContainer.innerHTML = searchHTML;
+
+                if(post.media && post.media.url) {
+                searchHTML += `<img src="${post.media.url}" alt="${post.media.alt}"/>`; 
+                }
+                searchHTML += `<div class="updates-on-posts">                               
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <div>Likes:</div>
+                                </div></div>`;
+            }); 
+            searchContainer.innerHTML = searchHTML;
 }
 
 

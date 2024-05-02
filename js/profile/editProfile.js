@@ -3,7 +3,8 @@ import { load } from "../localStorage/loadInfo.js";
 
 const editContainer = document.querySelector(".userInfo");
 
-//her er en del feil. fortsetter etter required ting er fikset: det står at jeg ikke har mulighet til å sende PUT til bio i postman..
+//her er en del feil. fortsetter etter required ting er fikset: 
+//det står at jeg ikke har mulighet til å sende PUT til bio i postman..
 
 export async function updateProfile() {
     editContainer.innerHTML += "";

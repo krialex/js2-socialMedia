@@ -26,7 +26,8 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-link"  id="newPostModal" aria-current="page" href="#">New Post</a>
+                  <a class="nav-link" href="/profile.html" aria-current="page">My profile</a>
+                  <a class="nav-link"  id="newPostModal" href="#">New Post</a>
                   <a class="nav-link" href="/feed.html">Explore posts</a>
                   <a class="nav-link" href="/allProfiles.html">Explore profiles</a>
                   <a class="nav-link" href="#">Log out</a>
@@ -47,8 +48,8 @@
             </div>
         </section>
         <hr>
-        <section class="container justify-content-center row profile-feed">
-                
+        <section class="profile-feed">
+            <!--container justify-content-center row -->
             
         </section>
         <!--The modal-->
@@ -58,8 +59,10 @@
                 <span class="close">&times;</span>
                 <input type="text" name="title" id="postTitle" class="post-title" minlength="1" maxlength="280" required placeholder="Your title">
                 <textarea id="postBody" class="post-body" rows="4" maxlength="280" placeholder="Your post"></textarea>
-                <input type="text" id="postImageUrls" placeholder="Place your image url here">
+                <input type="url" id="imagesUrl" placeholder="Add your images url here">
+                <input type="text" name="tags" id="postTags" placeholder="Tag your post" class="tag-input">
                 <button class="btn-form new-outline-btn postBtn">Add your new post</button>
+                <button class="btn-form new-outline-btn postBtn" id="update-post-btn" style="display: none;">Update your new post</button>
             </form>
         </div>
 

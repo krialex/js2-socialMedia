@@ -1,6 +1,7 @@
 import { GET_BASE_URL, API_KEY, PROFILE } from "../variabler.js";
 import { load } from "../localStorage/loadInfo.js";
 import { initializeSearch } from "../navigation/searchBtn.js";
+import { fetchSingleProfile } from "../profile/profile.js";
 
 
 // 
@@ -9,8 +10,6 @@ initializeSearch();
 
 const profileContainer = document.querySelector(".allProfiles");
 const searchInput = document.getElementById("search_input");
-
-
 
 const getData = async(PROFILE) => {
     const token = load("token");
@@ -43,6 +42,10 @@ searchInput.addEventListener("input", async () => {
         });
 
         renderProfiles(filteredProfiles);
+       // renderProfiles.addEventListener("click", fetchSingleProfile); //knaskje ikke funker?? 
+        //når jeg søker så kan jeg ikke trykke på profilen og displaye den..
+        //er det feil med "renderProfiles" i "click"-funkjson, eller er det et annet sted jeg gjør feil?
+                          
     } catch (error) {
         console.log("det har skjedd noe feil:", error);
     }

@@ -37,7 +37,11 @@
 .updates-on-posts {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+  margin-top: 20px; }
+
+.profilKnapp {
+  cursor: pointer; }
 
 .userInfo {
   max-width: 600px; }
@@ -50,7 +54,7 @@
   flex-direction: row;
   flex-wrap: wrap; }
 
-.profile-feed-card {
+.profile-feed-card, .feed-card {
   max-width: 200px; }
 
 .header-nav {
@@ -58,7 +62,7 @@
 
 .nav-link {
   color: #FFF;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold; }
 
 .nav-link:hover {
@@ -97,7 +101,7 @@
 .profile-feed img {
   width: 100%; }
 
-.userPosts img {
+.userPosts img, .updates-on-posts img {
   max-width: 300px; }
 
 .postFeed a, .profile-feed a {
@@ -105,20 +109,35 @@
   color: black; }
 
 .postFeed, .profile-feed {
-  max-width: 900px;
+  max-width: 1070px;
   margin: 0px auto;
   gap: 10px;
   display: flex;
-  flex-direction: column; }
+  flex-wrap: wrap;
+  padding: 0px 5px; }
+
+.feed-card {
+  max-width: max-content; }
 
 .feed-card, .profile-feed-card {
   background-color: #FFF;
   padding: 20px;
-  width: 100%; }
+  width: 100%;
+  margin: 0px auto; }
+
+.tag-input {
+  font-size: .7rem;
+  width: 20%; }
 
 @media (max-width: 574px) {
   .postFeed {
     flex-direction: row; } }
+@media (max-width: 700px) {
+  .postFeed, .profile-feed {
+    max-width: 600px; } }
+@media (max-width: 1050px) {
+  .postFeed, .profile-feed {
+    max-width: 900px; } }
 .post_modal {
   display: none;
   position: fixed;
@@ -135,7 +154,7 @@
   margin: 15% auto;
   padding: 20px;
   width: 80%;
-  height: 70%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   gap: 20px; }
