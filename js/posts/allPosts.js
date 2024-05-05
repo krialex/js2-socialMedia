@@ -3,7 +3,7 @@ import { load } from "../localStorage/loadInfo.js";
 import { getUserProfile } from "../profile/getId.js";
 import { fetchSinglePost } from "../posts/singlePost.js";
 
-const profileImage = document.querySelector(".profileImage");
+//const profileImage = document.querySelector(".profileImage");
   
 const allPosts = document.querySelector(".postFeed");
 
@@ -52,7 +52,14 @@ export async function getAllPosts() {
 getAllPosts();
 
 
-
+function reactOnPost() {  //prøvde å begynne på en slags funksjon som registerer reaksjoner:
+    reactData = {
+        "_count": {
+            "comments": [],
+            "reactions": []
+        }
+    }
+}
 
 
 

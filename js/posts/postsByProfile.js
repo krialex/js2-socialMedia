@@ -57,48 +57,10 @@ async function getPostsFromUser() {
         if(event.target.classList.contains("edit-post")) {
             const thePostEditId = event.target.getAttribute("data-post-edit-id");
             event.preventDefault();
-            //editPost(thePostEditId);
-            fillModalForEdit(thePostEditId);
-            //handleEditPost(event, postId);
-            
+            fillModalForEdit(thePostEditId);            
         }
     });
 }
 
 getPostsFromUser();
-
-
-
-
-
-/* async function deletePost(postId) {
-    //const profile = load("profile");
-    console.log("INNE I DELETE");
-    const token = load("token");
-    console.log("etter token");
-    console.log(postId + "2");
-   
-    try {
-       const response = await fetch(GET_BASE_URL + ALL_POSTS + `/${postId}`, {
-            method: "DELETE",
-            headers: { 
-                'Content-Type': 'application/json',
-                "X-Noroff-API-Key": API_KEY,
-                Authorization: `Bearer ${token}`
-            },
-        });
-        console.log("etter FETCH");
-
-        console.log("Post deleted successfully");
-        
-        const result = await response.json();
-       // return result; 
-       console.log(result);
-    } catch(error) {
-        console.log("finner ikke posten i api");
-    }
-
-}
-*/
-
 

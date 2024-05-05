@@ -21,11 +21,12 @@ window.onclick = function(event) {
 import { GET_BASE_URL, ALL_POSTS, API_KEY } from "../variabler.js";
 import { load } from "../localStorage/loadInfo.js";
 
-const form = document.querySelector(".postModalContet")
+//const form = document.querySelector(".postModalContet")
 const postTitle = document.getElementById("postTitle");
 const postBody = document.getElementById("postBody");
 const postImage = document.getElementById("imagesUrl");
 const postTags = document.getElementById("postTags");
+const addPostBtn = document.getElementById("addPostBtn");
 
 //Create new post
 export async function addNewPost(event) {
@@ -70,7 +71,7 @@ export async function addNewPost(event) {
         }
 }
 
-form.addEventListener(`submit`, addNewPost);
+addPostBtn.addEventListener(`click`, addNewPost);
 
 //Edit a post that I have written.
 /*
