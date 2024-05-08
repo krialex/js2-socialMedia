@@ -142,15 +142,21 @@
   font-size: .7rem;
   width: 20%; }
 
-@media (max-width: 574px) {
+@media (min-width: 574px) {
   .postFeed {
-    flex-direction: row; } }
-@media (max-width: 700px) {
+    flex-direction: row; }
+
+  .profile-feed {
+    max-width: 355px; } }
+@media (min-width: 700px) {
   .postFeed, .profile-feed {
-    max-width: 600px; } }
-@media (max-width: 1050px) {
-  .postFeed, .profile-feed {
-    max-width: 900px; } }
+    max-width: 710px; } }
+@media (min-width: 1050px) {
+  .postFeed {
+    max-width: 900px; }
+
+  .profile-feed {
+    max-width: 1070px; } }
 .post_modal {
   display: none;
   position: fixed;
