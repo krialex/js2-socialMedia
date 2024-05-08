@@ -2,6 +2,8 @@
 
 ## Description
 
+This is a page created as a school assignment where the task was to create a new front-end for an existing social media platform. The assignment gave us free rein to determine how the task should look, except that it should be attractive and responsive. With a given API and API documentation, functions were to be created that would allow users with @stud.noroff.no accounts to sign in and log in to the site. Additionally, users should be able to view, create, edit, and delete posts on the social network.
+
 ## Built with
 
 - HTML/Bootstrap
