@@ -1,12 +1,14 @@
-const newPostBtn = document.getElementById("newPostModal");
+const newPostBtn = document.querySelectorAll(".newPostModal");
 const modal = document.getElementById("postModal");
 const span = document.querySelector(".close");
 const updateBtn = document.getElementById("update-post-btn");
 const addPostBtn = document.getElementById("addPostBtn");
 
-newPostBtn.onclick = function() {
-    modal.style.display = "block";
-}
+newPostBtn.forEach(button => {
+    button.addEventListener('click', function() {
+        modal.style.display = "block";
+    });
+});
 
 span.onclick = function() {
     modal.style.display = "none";

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DishDelight | Profile</title>
+    <title>DishDelight | My Profile</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,20 +14,14 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container justify-content-evenly header-nav">
-              <a class="navbar-brand" href="#"><h2>DishDelight</h2></a>
-              <!--<div class="row feed-search">
-                <form class="d-flex col-12" role="search" id="search_form">
-                    <input class="form-control me-2 display-search" type="search" id="search_input" placeholder="Search" aria-label="Search">
-                    <button class="btn new-outline-btn" id="search_btn" type="submit">Search</button>
-                  </form>   
-            </div>   -->       
+              <a class="navbar-brand" href="#"><h2>DishDelight</h2></a>      
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                   <a class="nav-link" href="/profile.html" aria-current="page">My profile</a>
-                  <a class="nav-link"  id="newPostModal" href="#">New Post</a>
+                  <a class="nav-link newPostModal" href="#">New Post</a>
                   <a class="nav-link" href="/feed.html">Explore posts</a>
                   <a class="nav-link" href="/allProfiles.html">Explore profiles</a>
                   <a class="nav-link" href="#">Log out</a>
@@ -42,14 +36,11 @@
  
             </div>
             <div class="row justify-content-center">
-                <a href="editProfile.html" class="col-4"><button class="btn new-outline-btn profileBtn">Edit profile</button></a>
-                <a href="#" class="col-4"><button class="btn new-outline-btn profileBtn">Follow</button></a>
-                <a href="#" class="col-4"><button class="btn new-outline-btn profileBtn">Message</button></a>
+
             </div>
         </section>
         <hr>
         <section class="profile-feed">
-            <!--container justify-content-center row -->
             
         </section>
         <!--The modal-->
@@ -70,8 +61,8 @@
             <nav class="navbar sticky-bottom">
                 <div class="container-fluid justify-content-center lg-invisible">
                     <div class="row">
-                        <a href="#" class="col-4"><i class="fa-solid fa-house"></i></a>
-                        <a href="#" class="col-4" id="newPostModal"><i class="fa-solid fa-plus iconAdd"></i></a>
+                        <a href="/feed.html" class="col-4"><i class="fa-solid fa-house"></i></a>
+                        <a href="#" class="col-4 newPostModal"><i class="fa-solid fa-plus iconAdd"></i></a>
                         <a href="#" class="col-4"><i class="fa-solid fa-user"></i></a>
                     </div>
 

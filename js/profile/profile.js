@@ -1,8 +1,10 @@
 import { GET_BASE_URL, PROFILE, API_KEY } from "../variabler.js";
 import { load } from "../localStorage/loadInfo.js";
-//import { fetchSinglePost } from "../posts/allPosts.js";
+import { amIFollowing, unfollowUser, followUser } from "../profile/followUnfollow.js";
+import { addNewPost } from "../posts/createPost.js";
 
-const allProfiles = document.querySelector(".profile-feed");
+
+const allProfiles = document.querySelector(".allProfiles");
 const profileContainer = document.querySelector(".userInfo");
 let profileHTML = ''; 
 let selectedProfileName = ''; 
@@ -34,11 +36,11 @@ export async function getAllProfiles() {
                             <h5>${profile.name}</h5>
                             <img src="${profile.avatar.url}">
                             </div>
-                            
+                            </div>
                             </div>`;
         });
         allProfiles.innerHTML = profileHTML; 
-        allProfiles.addEventListener("click", fetchSingleProfile); //kasnkje denne ikke funker??
+        allProfiles.addEventListener("click", fetchSingleProfile); 
     } catch (error) {
         console.log("kan ikke finne alle profiler");
     }
@@ -70,10 +72,44 @@ export async function fetchSingleProfile(event) {
                                 alt="${singleProfile.data.avatar.alt}" 
                                 class="profile_img rounded-circle profileImg mb-2">
                                 <h3 class="col-12">${singleProfile.data.name}</h3>
-                                <p class="col-12">${singleProfile.data.bio || ''}</p>`;
+                                <p class="col-12">${singleProfile.data.bio || ''}</p>
+                                <div class="followers-info">
+                                <div class="follow-btn follow-unfollow" style="cursor: pointer">Follow</div>
+                                <div class="follow-btn"><div>Followers: </div>
+                                <div>${singleProfile.data._count.followers}</div></div>
+                                <div class="follow-btn"><div>Following: </div>
+                                <div>${singleProfile.data._count.following}</div></div>
+                                </div>`;
                                 
             profileContainer.innerHTML = profileHTML; 
             allProfiles.innerHTML = ""; 
+
+
+            const folgerjeg = await amIFollowing(profileName);
+            const followUnfollowBtn = profileContainer.querySelector(".follow-unfollow");
+
+            if(folgerjeg === true) {
+                followUnfollowBtn.textContent = "Unfollow";
+            } else {
+                followUnfollowBtn.textContent = "Follow";
+            }
+      
+            followUnfollowBtn.addEventListener("click", async (event) => {
+                try {
+                    if (folgerjeg === true) {
+                        await unfollowUser(event, profileName);
+                        followUnfollowBtn.textContent = "Follow";
+                        window.location.reload();
+                        
+                    } else {
+                        await followUser(event, profileName);
+                        followUnfollowBtn.textContent = "Unfollow";
+                        window.location.reload();
+                    }
+                } catch (error) {
+                    console.error("Failed to follow/unfollow:", error);
+                }
+            });
 
             postFromProfile();
         } else {
@@ -81,6 +117,7 @@ export async function fetchSingleProfile(event) {
         }
     }
 }
+
 
 async function postFromProfile() {
     const token = load("token");
@@ -97,24 +134,25 @@ async function postFromProfile() {
 
         console.log(result);
 
-        result.data.forEach(post => {
-            let postHTML = `
-                            <div class="feed-card userPosts">
-                            <h3>${post.title}</h3>
-                            <p>${post.body || ''}</p>`;
-                
-                if(post.media && post.media.url) {
-                    postHTML += `<img src="${post.media.url}" alt="${post.media.alt}">`;
-                }
-                postHTML += `<div class="updates-on-posts">
-                            <i class="fa-solid fa-thumbs-up"></i>
-                            <div>Likes:</div>
-                            </div></div></div>`;
-    
-                allProfiles.innerHTML += postHTML; 
-                //allProfiles.addEventListener("click", fetchSinglePost);
-                 
-            }); 
+        if (result.data.length === 0) {
+            allProfiles.innerHTML = `<p>This user has no posts yet</p>`;
+        } else {
+            result.data.forEach(post => {
+                let postHTML = `<div class="feed-card userPosts">
+                                <h3>${post.title}</h3>
+                                <p>${post.body || ''}</p>`;
+                    
+                    if(post.media && post.media.url) {
+                        postHTML += `<img src="${post.media.url}" alt="${post.media.alt}">`;
+                    }
+                    postHTML += `<div class="updates-on-posts">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <div>Likes:</div>
+                                </div></div></div>`;
+        
+                    allProfiles.innerHTML += postHTML; 
+                }); 
+        }
     } catch(error) {
         console.log("Dette funka ikke", error);
     }

@@ -21,8 +21,8 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="/profile.html">My profile</a>
-                  <a class="nav-link"  id="newPostModal" href="#">New Post</a>
+                  <a class="nav-link" href="/profile.html">My profile</a>
+                  <a class="nav-link newPostModal" href="#">New Post</a>
                   <a class="nav-link" href="/feed.html">Explore posts</a>
                   <a class="nav-link" href="/allProfiles.html">Explore profiles</a>
                   <a class="nav-link" href="#">Log out</a>
@@ -39,12 +39,25 @@
         <section class="container justify-content-center ">
             <div class="postFeed row g-3"></div>
         </section>
+         <!--The modal-->
+         <div id="postModal" class="post_modal">
+            <!--modal content-->
+                <form class="postModalContet logIn border rounded">
+                    <span class="close">&times;</span>
+                    <input type="text" name="title" id="postTitle" class="post-title" minlength="1" maxlength="280" required placeholder="Your title">
+                    <textarea id="postBody" class="post-body" rows="4" maxlength="280" placeholder="Your post"></textarea>
+                    <input type="url" id="imagesUrl" placeholder="Add your images url here">
+                    <input type="text" name="tags" id="postTags" placeholder="Tag your post" class="tag-input">
+                    <button class="btn-form new-outline-btn postBtn" id="addPostBtn">Add your new post</button>
+                    <button class="btn-form new-outline-btn postBtn" id="update-post-btn" style="display: none;">Update your new post</button>
+                </form>
+            </div>
         <div class="navParent container-fluid d-flex justify-content-evenly">
             <nav class="navbar sticky-bottom">
                 <div class="container-fluid justify-content-center lg-invisible">
                     <div class="row">
-                        <a href="#" class="col-4"><i class="fa-solid fa-house"></i></a>
-                        <a href="#" class="col-4"><i class="fa-solid fa-plus iconAdd"></i></a>
+                        <a href="/feed.html" class="col-4"><i class="fa-solid fa-house"></i></a>
+                        <a href="#" class="col-4 newPostModal"><i class="fa-solid fa-plus iconAdd"></i></a>
                         <a href="/profile.html" class="col-4"><i class="fa-solid fa-user"></i></a>
                     </div>
 

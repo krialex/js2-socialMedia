@@ -1,8 +1,5 @@
 import { GET_BASE_URL, LOGIN, API_KEY } from "../variabler.js";
 import { save } from "../localStorage/saveInfo.js";
-//import { getProfile } from "../profile/profile.js";
-//import { getId } from "../profile/getId.js";
-
 
 const logInForm = document.querySelector(".logIn");
 const userEmail = document.getElementById("loginEmail");
@@ -67,10 +64,9 @@ logInForm.addEventListener("submit", async (event) => {
 
         try {
             await login(email, password); 
-            setTimeout(() => window.location.replace("profile.html"), 2000);
+            setTimeout(() => window.location.replace("profile.html"), 500);
         } catch (error) {
             console.error(error);
         }
-        //getId(email);
     }
 });

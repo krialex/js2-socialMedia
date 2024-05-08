@@ -37,3 +37,13 @@
 .profilKnapp {
     cursor: pointer;
 }
+
+.follow-btn {
+    border: 1px solid #FFF;
+    padding: 2px 7px;
+    background-color: #FFF;
+    border-radius: 4px;
+    color: $primary;
+    display: flex;
+    gap: 7px;
+}

@@ -10,12 +10,9 @@ export async function getUserProfile(name) {
     const token = load("token");
     let tempName = profile.name;
     let profileName;
-    console.log(tempName + "   " + profile.name)
     
            if (name === undefined || name === null || name === "") {
-            console.log(tempName + "før assign");
             profileName = tempName;
-            console.log(profileName + "Etter assign");
                 } else {
                 profileName = name;
                 }
@@ -34,17 +31,26 @@ export async function getUserProfile(name) {
             throw new Error("Failed to fetch user info");
         }
         const userData = await response.json();
-        console.log(userData);
 
-        profileContainer.innerHTML += `<img src="${userData.data.avatar.url}" alt="${userData.data.avatar.alt}" class="profile_img rounded-circle profileImg mb-2"><h3 class="col-12">${userData.data.name}</h3>
-        <p class="col-12">${userData.data.bio || ''}</p>`;
+        profileContainer.innerHTML += `<img src="${userData.data.avatar.url}" 
+                                        alt="${userData.data.avatar.alt}" 
+                                        class="profile_img rounded-circle profileImg mb-2">
+                                        <h3 class="col-12">${userData.data.name}</h3>
+                                        <p class="col-12">${userData.data.bio || ''}</p>
+                                        <div class="followers-info">
+                                        <a href="editProfile.html" class="follow-btn" style="text-decoration: none">Edit profile</a>
+                                        <div class="follow-btn"><div>Followers: </div>
+                                        <div>${userData.data._count.followers}</div></div>
+                                        <div class="follow-btn"><div>Following: </div>
+                                        <div>${userData.data._count.following}</div></div>
+                                        </div>`;
 
         return userData;
     } catch {
         console.log("could not find profile");
     }
 }
-//getUserProfile();
+
   
 
 

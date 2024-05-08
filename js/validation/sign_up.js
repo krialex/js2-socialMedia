@@ -70,7 +70,7 @@ registreringForm.addEventListener("submit", async (event) => {
 
         try {
             await registrerAccount(name, email, password); 
-            setTimeout(() => window.location.replace("index.html"), 2000);
+            setTimeout(() => window.location.replace("index.html"), 1000);
         } catch (error) {
             console.error(error);
         }

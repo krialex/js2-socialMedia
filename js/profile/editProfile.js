@@ -29,11 +29,17 @@ export async function updateProfile() {
 
         console.log(userData);
 
-        editContainer.innerHTML += `<img src="${userData.data.avatar.url}" alt="${userData.data.avatar.alt}" class="profile_img rounded-circle profileImg mb-2"><h3 class="col-12">${userData.data.name}</h3>
-        <form class="border rounded p-3 mb-4 text-start col-sm-12 loginForm">
-        <lable for="bio">Update your bio here:</label>
-        <input type="text" name="bio" id="bioInput" class="form-control form-control-sm mb-1" maxlength="70" value="${userData.data.bio || ''}">
-        <button class="btn btn-form mb-3" type="submit">Update bio</button></form>`;
+        editContainer.innerHTML += `<img src="${userData.data.avatar.url}" 
+                                    alt="${userData.data.avatar.alt}" 
+                                    class="profile_img rounded-circle profileImg mb-2">
+                                    <h3 class="col-12">${userData.data.name}</h3>
+                                    <form class="border rounded p-3 mb-4 text-start col-sm-12 loginForm">
+                                    <lable for="bio">Update your bio here:</label>
+                                    <input type="text" name="bio" id="bioInput" 
+                                    class="form-control form-control-sm mb-1" maxlength="70" 
+                                    value="${userData.data.bio || ''}">
+                                    <button class="btn btn-form mb-3" type="submit">Update bio</button>
+                                    </form>`;
 
         const updateUserProfile = document.querySelector(".editUserProfile");
 
