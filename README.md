@@ -33,6 +33,10 @@ NPM
 ```
 
 ```
+npm install bootstrap
+```
+
+```
 npm install -g sass
 ```
 
@@ -42,10 +46,14 @@ npm install -g live-server
 
 ### Running
 
-You need to have Node installed to run this on your computer, and use the following command
+You need to have Node installed to run this on your computer, and use the following command in the directory of the project.
 
 ```
-npm start
+npm run-script watch
+```
+
+```
+live-server
 ```
 
 ## Link to Trello board
