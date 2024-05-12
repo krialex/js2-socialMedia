@@ -61,7 +61,7 @@ export async function addNewPost(event) {
             }
             const userData = await response.json();
             window.location.reload();
-            // prøv å fjern input-data når posten er postet
+
             return userData;
         } catch {
             console.log("all kode feilet");

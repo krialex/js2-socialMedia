@@ -74,7 +74,7 @@
   gap: 50px; }
 
 .nav-link {
-  color: #FFF;
+  color: #363636;
   font-size: 1.2rem;
   font-weight: bold; }
 
@@ -134,9 +134,10 @@
 
 .feed-card, .profile-feed-card {
   background-color: #FFF;
-  padding: 20px;
-  width: 100%;
-  margin: 0px auto; }
+  padding: 10px; }
+
+.userPosts p, .userPosts h3 {
+  max-width: 250px; }
 
 .tag-input {
   font-size: .7rem;
@@ -209,7 +210,7 @@ body {
 
 h1, h2 {
   font-family: "Pacifico", cursive;
-  color: #FFF; }
+  color: #363636; }
 
 h1 {
   font-size: 3.5rem;
@@ -219,7 +220,7 @@ h2 {
   font-size: 3rem; }
 
 hr {
-  color: #FFF;
+  color: #363636;
   opacity: 100; }
 
 .index-hr {

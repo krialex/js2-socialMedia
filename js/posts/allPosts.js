@@ -3,8 +3,6 @@ import { load } from "../localStorage/loadInfo.js";
 import { getUserProfile } from "../profile/getId.js";
 import { fetchSinglePost } from "../posts/singlePost.js";
 import { addNewPost } from "../posts/createPost.js";
-
-//const profileImage = document.querySelector(".profileImage");
   
 const allPosts = document.querySelector(".postFeed");
 
@@ -51,6 +49,8 @@ export async function getAllPosts() {
 }
 
 getAllPosts();
+
+
 
 
 

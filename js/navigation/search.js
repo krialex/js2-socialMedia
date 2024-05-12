@@ -9,58 +9,80 @@ initializeSearch();
 
 const searchContainer = document.querySelector(".postFeed");
 const searchInput = document.getElementById("search_input");
+const searchInputTag = document.getElementById("input-tag");
 
-const getData = async(query) => {
-    const token = load("token");
-    const response = await fetch(`${GET_BASE_URL}${query}`, {
-        headers: { 
-            "X-Noroff-API-Key": API_KEY,
-            Authorization: `Bearer ${token}` 
-        },
-        method: 'GET',
-    });
-    const userData = await response.json();
-    console.log(userData);
-    return userData;
-}
+searchInputTag.addEventListener("input", async () => {
+    await handleSearch();
+});
 
-searchInput.addEventListener("input", async () => {
-    let entry = searchInput.value.trim().toLowerCase();
-    console.log("Dette skjer:", entry);
+async function handleSearch() {
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    const searchTag = searchInputTag.value.trim().toLowerCase();
 
     try {
-        if (entry === "") {
-            const allPostsData = await getData(SEARCH_POSTS);
-            renderPosts(allPostsData.data);
-            return;
+        let query = '';
+
+        if (searchTerm !== "") {
+            query = `/social/posts/search?q=${encodeURIComponent(searchTerm)}`;
         }
 
-        const searchLoad = await getData(`/social/posts/search?q=${encodeURIComponent(entry)}`);
-        console.log(searchLoad);
+        if (searchTag !== "") {
+            if (query !== '') {
+                query += `&_tag=${encodeURIComponent(searchTag)}`;
+            } else {
+                query = `/social/posts?_tag=${encodeURIComponent(searchTag)}`;
+            }
+        }
 
-        renderPosts(searchLoad.data);
+        if (searchTerm === "" && searchTag === "") {
+            query = '/social/posts'; 
+        }
+
+        const searchData = await getData(query);
+        renderPosts(searchData.data);
     } catch (error) {
-        console.log("det har skjedd noe feil:", error);
+        //console.log("An error occurred:", error);
     }
-});
+}
+
+
+searchInput.addEventListener("input", handleSearch);
+
+const getData = async (query) => {
+    try {
+        const token = load("token");
+        const response = await fetch(`${GET_BASE_URL}${query}`, {
+            headers: {
+                "X-Noroff-API-Key": API_KEY,
+                Authorization: `Bearer ${token}`
+            },
+            method: "GET"
+        });
+        const userData = await response.json();
+        return userData;
+    } catch (error) {
+        throw new Error("Failed to fetch data");
+    }
+};
+
 
 function renderPosts(posts) {
     let searchHTML = "";
-    
-    posts.forEach(post => {
+
+    posts.forEach((post) => {
         searchHTML += `<div class="feed-card userPosts">
                         <h3>${post.title}</h3>
-                        <p>${post.body || ''}</p>`;
+                        <p>${post.body || ""}</p>`;
 
-                if(post.media && post.media.url) {
-                searchHTML += `<img src="${post.media.url}" alt="${post.media.alt}"/>`; 
-                }
-                searchHTML += `<div class="updates-on-posts">                               
+        if (post.media && post.media.url) {
+            searchHTML += `<img src="${post.media.url}" alt="${post.media.alt}"/>`;
+        }
+        searchHTML += `<div class="updates-on-posts">                               
                                 <i class="fa-solid fa-thumbs-up"></i>
                                 <div>Likes:</div>
                                 </div></div>`;
-            }); 
-            searchContainer.innerHTML = searchHTML;
+    });
+    searchContainer.innerHTML = searchHTML;
 }
 
 

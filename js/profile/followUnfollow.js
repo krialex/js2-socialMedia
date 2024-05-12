@@ -3,9 +3,9 @@ import { load } from "../localStorage/loadInfo.js";
 
 // sjekk om jeg følger alt:
 export async function amIFollowing(navntilden) {
-    const profileName = (await load("profile")); // Convert to lowercase
+    const profileName = (await load("profile")); 
     const token = load("token");
-    console.log("Dette er mitt navn", profileName, "Her er navn til den: ", navntilden);
+
     try {
         const response = await fetch(GET_BASE_URL + PROFILE + `/` + `${navntilden}` + `?_followers=true`, {
             headers: {
@@ -44,10 +44,6 @@ export async function followUser(event, profileName) {
     try {
         const token = load("token");
 
-        /*const followData = {
-            followers: []
-        };*/
-
         const response = await fetch(`${GET_BASE_URL}${PROFILE}/${profileName}/follow`, {
             method: 'PUT',
             headers: { 
@@ -70,10 +66,6 @@ export async function unfollowUser(event, profileName) {
     event.preventDefault();
     try {
         const token = load("token");
-
-       /* const unfollowData = { //fjern denne på begge funksjoner..
-            followers: []
-        }; */
 
         const response = await fetch(`${GET_BASE_URL}${PROFILE}/${profileName}/unfollow`, {
             method: 'PUT',
