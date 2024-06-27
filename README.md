@@ -44,16 +44,20 @@ npm install -g sass
 npm install -g live-server
 ```
 
+```
+npm install concurrently --save-dev
+```
+
 ### Running
 
 You need to have Node installed to run this on your computer, and use the following command in the directory of the project.
 
 ```
-npm run-script watch
+npm run build
 ```
 
 ```
-live-server
+npm run watch
 ```
 
 ## Link to Trello board
