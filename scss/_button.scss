@@ -1,0 +1,49 @@
+.btn-form, .new-outline-btn, .small-btn {
+    background-color: $primary;
+    color: #FFF;
+
+}
+
+.btn-form:hover, .new-outline-btn:hover, .small-btn:hover {
+    background-color: #FFF;
+    color: $primary;
+    border: 1px solid $primary;
+}
+
+.profileBtn {
+    width: 100%;
+}
+
+.small-btn {
+    font-size: 1rem;
+    padding: 2px 5px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.fa-thumbs-up {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: $primary;
+}
+
+.updates-on-posts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.profilKnapp {
+    cursor: pointer;
+}
+
+.follow-btn {
+    border: 1px solid #FFF;
+    padding: 2px 7px;
+    background-color: #FFF;
+    border-radius: 4px;
+    color: $primary;
+    display: flex;
+    gap: 7px;
+}

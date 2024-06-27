@@ -1,0 +1,50 @@
+.header-nav {
+    gap: 50px;
+}
+
+.nav-link {
+    color: #363636;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: $primary;
+}
+
+.display-search {
+    display: none;
+}
+
+
+//Bottom nav
+.sticky-bottom {
+    display: none;
+    position: fixed !important;
+    bottom: 0;
+    font-size: 3rem;
+    width: inherit;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.sticky-bottom a {
+    color: $primary;
+}
+
+.iconAdd {
+    border: 3px solid $primary;
+    border-radius: 50%;
+    padding: 1px 4px;
+}
+
+@media(max-width: 768px) {
+    .sticky-bottom {
+        display: block;
+    }
+}
+
+@media(max-width: 1200px) {
+    .header-nav {
+        gap: 0px;
+    }
+}
