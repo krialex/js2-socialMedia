@@ -1,4 +1,4 @@
-import { GET_BASE_URL, PROFILE, API_KEY } from "../variabler.js";
+import { GET_BASE_URL, PROFILE, API_KEY } from "../variables.js";
 import { load } from "../localStorage/loadInfo.js";
 import { amIFollowing, unfollowUser, followUser } from "../profile/followUnfollow.js";
 import { addNewPost } from "../posts/createPost.js";
@@ -42,7 +42,7 @@ export async function getAllProfiles() {
         allProfiles.innerHTML = profileHTML; 
         allProfiles.addEventListener("click", fetchSingleProfile); 
     } catch (error) {
-        console.log("kan ikke finne alle profiler");
+        console.log("Failed to fetch all profiles");
     }
 }
 getAllProfiles();
@@ -54,7 +54,7 @@ export async function fetchSingleProfile(event) {
     if (clickedProfile) {
         selectedProfileName = clickedProfile.dataset.profileName; 
         const profileName = clickedProfile.dataset.profileName;
-        console.log("Inne i attach");
+
         const response = await fetch(`${GET_BASE_URL}${PROFILE}/${profileName}`, {
             headers: { 
                 "X-Noroff-API-Key": API_KEY,
@@ -62,12 +62,10 @@ export async function fetchSingleProfile(event) {
             },
             method: 'GET',
         });
-        console.log(profileName);
-        console.log("dette er responsen på fetch:", response);
 
         if (response.ok) {
             const singleProfile = await response.json();
-            console.log(singleProfile);
+
             const profileHTML = `<img src="${singleProfile.data.avatar.url}" 
                                 alt="${singleProfile.data.avatar.alt}" 
                                 class="profile_img rounded-circle profileImg mb-2">
@@ -84,11 +82,10 @@ export async function fetchSingleProfile(event) {
             profileContainer.innerHTML = profileHTML; 
             allProfiles.innerHTML = ""; 
 
-
-            const folgerjeg = await amIFollowing(profileName);
+            const isFollowing = await amIFollowing(profileName);
             const followUnfollowBtn = profileContainer.querySelector(".follow-unfollow");
 
-            if(folgerjeg === true) {
+            if(isFollowing === true) {
                 followUnfollowBtn.textContent = "Unfollow";
             } else {
                 followUnfollowBtn.textContent = "Follow";
@@ -96,7 +93,7 @@ export async function fetchSingleProfile(event) {
       
             followUnfollowBtn.addEventListener("click", async (event) => {
                 try {
-                    if (folgerjeg === true) {
+                    if (isFollowing === true) {
                         await unfollowUser(event, profileName);
                         followUnfollowBtn.textContent = "Follow";
                         window.location.reload();
@@ -132,8 +129,6 @@ async function postFromProfile() {
         });
         const result = await response.json();
 
-        console.log(result);
-
         if (result.data.length === 0) {
             allProfiles.innerHTML = `<p>This user has no posts yet</p>`;
         } else {
@@ -154,6 +149,6 @@ async function postFromProfile() {
                 }); 
         }
     } catch(error) {
-        console.log("Dette funka ikke", error);
+        console.log(error);
     }
 }

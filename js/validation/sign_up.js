@@ -1,4 +1,4 @@
-import { GET_BASE_URL, REGISTRER } from "../variabler.js";
+import { GET_BASE_URL, REGISTRER } from "../variables.js";
 
 
 const registreringForm = document.querySelector(".signUpForm");
@@ -66,11 +66,10 @@ registreringForm.addEventListener("submit", async (event) => {
         const name = userName.value;
         const email = userEmail.value;
         const password = userPassword.value;
-        console.log(name, email, password);
 
         try {
             await registrerAccount(name, email, password); 
-            setTimeout(() => window.location.replace("index.html"), 1000);
+            setTimeout(() => window.location.replace("index.html"), 500);
         } catch (error) {
             console.error(error);
         }

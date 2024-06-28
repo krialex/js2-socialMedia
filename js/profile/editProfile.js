@@ -1,10 +1,7 @@
-import { GET_BASE_URL, PROFILE, API_KEY } from "../variabler.js";
+import { GET_BASE_URL, PROFILE, API_KEY } from "../variables.js";
 import { load } from "../localStorage/loadInfo.js";
 
 const editContainer = document.querySelector(".userInfo");
-
-//her er en del feil. fortsetter etter required ting er fikset: 
-//det står at jeg ikke har mulighet til å sende PUT til bio i postman..
 
 export async function updateProfile() {
     editContainer.innerHTML += "";
@@ -26,8 +23,6 @@ export async function updateProfile() {
         }
     
         const userData = await response.json();
-
-        console.log(userData);
 
         editContainer.innerHTML += `<img src="${userData.data.avatar.url}" 
                                     alt="${userData.data.avatar.alt}" 
@@ -64,7 +59,6 @@ export async function updateProfile() {
                 if (!updateResponse.ok) {
                     throw new Error("Failed to update user info");
                 }
-                console.log("user info updated succsesfully, send bruker tilbake til profil.html?");
             } catch (error) {
                 console.error("Could not update profile: ", error);
             }
@@ -75,7 +69,6 @@ export async function updateProfile() {
         console.error("could not fetch user info: ", error);
     }
 }
-
 
 updateProfile();
 

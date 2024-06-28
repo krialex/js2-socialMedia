@@ -1,4 +1,4 @@
-import { GET_BASE_URL, PROFILE, API_KEY, POST_BY_PROFILE, ALL_POSTS } from "../variabler.js";
+import { GET_BASE_URL, PROFILE, API_KEY, POST_BY_PROFILE, ALL_POSTS } from "../variables.js";
 import { load } from "../localStorage/loadInfo.js";
 import { getUserProfile } from "../profile/getId.js";
 import { deletePost } from "../posts/deletePost.js";
@@ -21,7 +21,6 @@ async function getPostsFromUser() {
             method: 'GET',
         });
         const result = await response.json();
-
         console.log(result);
 
         result.data.forEach(post => {
@@ -43,17 +42,16 @@ async function getPostsFromUser() {
                 userPostsContainer.innerHTML += postHTML;  
             }); 
     } catch(error) {
-        console.log("Dette funka ikke", error);
+        console.log("Failed to fetch posts from profile ", error);
     }
      //Delete post
      userPostsContainer.addEventListener("click", async(event) => {
         if (event.target.classList.contains("delete-post")) {
-            console.log("Inne i attach");
             const thepostid = event.target.getAttribute("data-post-id");
             event.preventDefault();
             deletePost(thepostid);
         }
-        //Edit post
+     //Edit post
         if(event.target.classList.contains("edit-post")) {
             const thePostEditId = event.target.getAttribute("data-post-edit-id");
             event.preventDefault();

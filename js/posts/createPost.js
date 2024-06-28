@@ -18,7 +18,7 @@ window.onclick = function(event) {
     }
 } 
 
-import { GET_BASE_URL, ALL_POSTS, API_KEY } from "../variabler.js";
+import { GET_BASE_URL, ALL_POSTS, API_KEY } from "../variables.js";
 import { load } from "../localStorage/loadInfo.js";
 
 const postTitle = document.getElementById("postTitle");
@@ -57,14 +57,14 @@ export async function addNewPost(event) {
             });
 
             if (!response.ok) {
-                throw new Error("Kunne ikke legge til ny post");
+                throw new Error("Failed to add a new post");
             }
             const userData = await response.json();
             window.location.reload();
 
             return userData;
         } catch {
-            console.log("all kode feilet");
+            console.log("An error occured");
         }
 }
 

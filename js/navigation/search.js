@@ -1,4 +1,4 @@
-import { GET_BASE_URL, API_KEY, SEARCH_POSTS } from "../variabler.js";
+import { GET_BASE_URL, API_KEY, SEARCH_POSTS } from "../variables.js";
 import { load } from "../localStorage/loadInfo.js";
 import { initializeSearch } from "../navigation/searchBtn.js";
 
@@ -41,10 +41,9 @@ async function handleSearch() {
         const searchData = await getData(query);
         renderPosts(searchData.data);
     } catch (error) {
-        //console.log("An error occurred:", error);
+        console.log("An error occurred:", error);
     }
 }
-
 
 searchInput.addEventListener("input", handleSearch);
 

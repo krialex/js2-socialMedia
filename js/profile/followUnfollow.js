@@ -1,13 +1,13 @@
-import { GET_BASE_URL, PROFILE, API_KEY } from "../variabler.js";
+import { GET_BASE_URL, PROFILE, API_KEY } from "../variables.js";
 import { load } from "../localStorage/loadInfo.js";
 
-// sjekk om jeg følger alt:
-export async function amIFollowing(navntilden) {
+// Chech if user is already following an other user
+export async function amIFollowing(otherUser) {
     const profileName = (await load("profile")); 
     const token = load("token");
 
     try {
-        const response = await fetch(GET_BASE_URL + PROFILE + `/` + `${navntilden}` + `?_followers=true`, {
+        const response = await fetch(GET_BASE_URL + PROFILE + `/` + `${otherUser}` + `?_followers=true`, {
             headers: {
                 "X-Noroff-API-Key": API_KEY,
                 Authorization: `Bearer ${token}`
@@ -37,8 +37,7 @@ export async function amIFollowing(navntilden) {
     }
 }
 
-
-// Funksjon for å følge en bruker
+// Follow a user
 export async function followUser(event, profileName) {
     event.preventDefault();
     try {
@@ -61,7 +60,7 @@ export async function followUser(event, profileName) {
     }
 }
 
-// Funksjon for å ikke-følge en bruker
+// Unfollow a user
 export async function unfollowUser(event, profileName) {
     event.preventDefault();
     try {
@@ -75,7 +74,6 @@ export async function unfollowUser(event, profileName) {
                 Authorization: `Bearer ${token}`
             },
         });
-        console.log(unfollowData);
 
         if (!response.ok) {
             throw new Error("Failed to unfollow user");

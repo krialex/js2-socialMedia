@@ -20,7 +20,7 @@ window.onclick = function(event) {
     }
 } 
 
-import { GET_BASE_URL, ALL_POSTS, API_KEY } from "../variabler.js";
+import { GET_BASE_URL, ALL_POSTS, API_KEY } from "../variables.js";
 import { load } from "../localStorage/loadInfo.js";
 
 const postTitle = document.getElementById("postTitle");
@@ -30,14 +30,11 @@ const postImage = document.getElementById("imagesUrl");
 
 let currentPostId = null;
 
-// Legg til hendelseshåndtereren for skjemaet når dokumentet lastes inn
 updateBtn.addEventListener('click', async (event) => { 
     const postId = currentPostId;
     await handleEditPost(event, postId);
-    console.log(event, postId, "dette er i eventlisnter");
 });
 
-// I fillModalForEdit-funksjonen
 export async function fillModalForEdit(postId) {
     let postData = {};
     try {
@@ -56,7 +53,6 @@ export async function fillModalForEdit(postId) {
         }
 
         postData = await response.json();
-        console.log("dette er responsen,- postData:", postData); 
         
         modal.style.display = "block";
         updateBtn.style.display = "block";
@@ -65,10 +61,8 @@ export async function fillModalForEdit(postId) {
         currentPostId = postId;
        
         postTitle.value = postData.data.title;
-        console.log("dette er tittelen", postTitle);
         postBody.value = postData.data.body;
         postImage.value = postData.data.media.url; 
-
     } catch(error) {
         console.error("Failed to fetch post data:", error);
     }
@@ -110,4 +104,3 @@ export async function handleEditPost(event, postId) {
         console.error("Failed to update post:", error);
     }
 }
-

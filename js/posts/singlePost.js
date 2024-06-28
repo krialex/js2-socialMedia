@@ -1,4 +1,4 @@
-import { GET_BASE_URL, API_KEY, ALL_POSTS } from "../variabler.js";
+import { GET_BASE_URL, API_KEY, ALL_POSTS } from "../variables.js";
 import { load } from "../localStorage/loadInfo.js";
 
 //Display single post
@@ -7,7 +7,6 @@ export async function fetchSinglePost(event) {
     const clickedPost = event.target.closest('.feed-card');
     if (clickedPost) {
         const postId = clickedPost.dataset.postId;
-        console.log("Inne i attach");
         const response = await fetch(`${GET_BASE_URL}${ALL_POSTS}/${postId}`, {
             headers: { 
                 "X-Noroff-API-Key": API_KEY,
@@ -15,12 +14,9 @@ export async function fetchSinglePost(event) {
             },
             method: 'GET',
         });
-        console.log(postId);
-        console.log("dette er responsen på fetch:", response);
 
         if (response.ok) {
             const singlePost = await response.json();
-            console.log(singlePost);
 
             const allPostElements = document.querySelectorAll('.feed-card');
             

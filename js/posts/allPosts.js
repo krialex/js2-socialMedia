@@ -1,4 +1,4 @@
-import { GET_BASE_URL, API_KEY, ALL_POSTS } from "../variabler.js";
+import { GET_BASE_URL, API_KEY, ALL_POSTS } from "../variables.js";
 import { load } from "../localStorage/loadInfo.js";
 import { getUserProfile } from "../profile/getId.js";
 import { fetchSinglePost } from "../posts/singlePost.js";
@@ -22,7 +22,6 @@ export async function getAllPosts() {
             throw new Error("Failed to fetch all posts");
         }
         const responseJson = await response.json();
-        console.log(responseJson);
 
         allPosts.innerHTML = "";
 
@@ -44,7 +43,7 @@ export async function getAllPosts() {
                 allPosts.addEventListener("click", fetchSinglePost);
         }); 
     } catch (error) {
-        console.log("kan ikke finne alle postene");
+        console.log("failed to fetch all posts");
     }
 }
 

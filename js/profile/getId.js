@@ -1,4 +1,4 @@
-import { GET_BASE_URL, PROFILE, API_KEY } from "../variabler.js";
+import { GET_BASE_URL, PROFILE, API_KEY } from "../variables.js";
 import { load } from "../localStorage/loadInfo.js";
 
 const profileContainer = document.querySelector(".userInfo");

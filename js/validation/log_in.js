@@ -1,4 +1,4 @@
-import { GET_BASE_URL, LOGIN, API_KEY } from "../variabler.js";
+import { GET_BASE_URL, LOGIN, API_KEY } from "../variables.js";
 import { save } from "../localStorage/saveInfo.js";
 
 const logInForm = document.querySelector(".logIn");
@@ -28,9 +28,7 @@ export async function login(email, password) {
         save("token", accessToken);
         save("profile", profile);
         return profile;
-    }
-    console.log(userEmail, userPassword);
-    
+    }    
     throw new Error("Could not log in");
 }
 

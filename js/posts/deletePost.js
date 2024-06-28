@@ -1,4 +1,4 @@
-import {  API_KEY } from "../variabler.js";
+import {  API_KEY } from "../variables.js";
 import { load } from "../localStorage/loadInfo.js";
 import { getUserProfile } from "../profile/getId.js";
 
@@ -16,7 +16,6 @@ import { getUserProfile } from "../profile/getId.js";
 
 export async function deletePost(postId2) {
     const token = load("token");
-    console.log("etter token");
    
     try {
         const response = await fetch('https://v2.api.noroff.dev/social/posts/' + `${postId2}`, {
@@ -30,16 +29,13 @@ export async function deletePost(postId2) {
                Authorization: `Bearer ${token}`
             },
         });
-        console.log("etter FETCH");
 
-        console.log("Post deleted successfully");
         if(!alert('Your post is deleted!')){window.location.reload();}
         
         const result = await response.json();
         console.log(result);
     } catch(error) {
-        console.log("finner ikke posten i api"+ result);
+        console.log("Can not find post " + result);
     }
-
 }
 
