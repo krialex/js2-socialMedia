@@ -1,29 +1,4 @@
-//Costume variables
-$primaryFont: 'Pacifico', cursive;
-$primary: #6F46B0;
 
-
-//import functions and variables
-@import "../node_modules/bootstrap/scss/functions";
-@import "../node_modules/bootstrap/scss/variables";
-
-$alt-theme-colors: (
-    "altlight": #FAD5D5,
-    "altdark": #FF9C9C
-);
-
-$theme-colors: map-merge($alt-theme-colors, $theme-colors);
-
-//import styles
-@import "../scss/form.scss";
-@import "../scss/button.scss";
-@import "../scss/profile.scss";
-@import "../scss/nav.scss";
-@import "../scss/images.scss";
-@import "../scss/posts.scss";
-@import "../scss/newPostModal.scss";
-
-@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 .indexBody {
     background-color: map-get($alt-theme-colors, "altdark");

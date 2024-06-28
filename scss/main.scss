@@ -1,3 +1,21 @@
+//Costume variables
+$primaryFont: 'Pacifico', cursive;
+$primary: #6F46B0;
+
+
+//import functions and variables
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+$alt-theme-colors: (
+    "altlight": #FAD5D5,
+    "altdark": #FF9C9C
+);
+
+$theme-colors: map-merge($alt-theme-colors, $theme-colors);
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
 @import 'script';
 @import 'reactionsPost';
 @import 'profile';
@@ -6,4 +24,4 @@
 @import 'nav';
 @import 'images';
 @import 'form';
-@import 'button';
+@import 'button'; 
