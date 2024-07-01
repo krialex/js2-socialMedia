@@ -1,3 +1,5 @@
+//This function does not work correctly yet. 
+
 import { GET_BASE_URL, PROFILE, API_KEY } from "../variables.js";
 import { load } from "../localStorage/loadInfo.js";
 

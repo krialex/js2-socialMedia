@@ -1,6 +1,5 @@
 import { GET_BASE_URL, REGISTRER } from "../variables.js";
 
-
 const registreringForm = document.querySelector(".signUpForm");
 const userName = document.getElementById("loginName");
 const userEmail = document.getElementById("loginEmail");
@@ -8,7 +7,6 @@ const userPassword = document.getElementById("loginPassword");
 const errorName = document.getElementById("errorName");
 const errorEmail = document.getElementById("errorEmail");
 const errorPassword = document.getElementById("errorPassword");
-
 
 // Get api to sign up:
 export async function registrerAccount(name, email, password) {
